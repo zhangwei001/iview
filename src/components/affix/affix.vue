@@ -6,6 +6,53 @@
     </div>
 </template>
 <script>
+/*
+  scrollHandle(event){
+        var timer ,that = this,pageNum=0;
+        let cls="";
+          if(this.$route.name=="newDetail"){
+                cls=".d-panel";
+          }else{
+                cls=".slide-content";
+          }
+
+        //设置分页 初期显示3条 后面每次20条数据
+        timer && clearTimeout(timer);
+        timer =setTimeout(function(){
+              let scrollTop = event.target.scrollTop || 0; //滚动了的距离
+              let scrollHeight= document.querySelector(cls).scrollHeight || 0; //滚动条全长
+              let docHeight = document.documentElement.clientHeight || 0;//可视区高度
+              //下滚
+              if(that.tempDistance<scrollTop){
+
+                that.$store.commit(types.PROGRESSPAGE,{
+                    startId: that.progressDataList[that.progressDataList.length-1] ? 
+                                  that.progressDataList[that.progressDataList.length-1].id :0,
+                    limit: 20,
+                    order:1 
+                  });
+
+                //可用分页次数
+                pageNum = that.progressTotalNum>3 ? 
+                            Math.ceil( (that.progressTotalNum-3)/that.progressPage.limit ):1;
+                 
+                if(scrollHeight == (scrollTop+ docHeight ) && that.pageNum > that.currentPageNum){
+                    that.currentPageNum ++;
+                    that.$store.dispatch("getProgressListData",{ 
+                            id:        that.detailData.id,
+                            order:     1,
+                            start_id:  that.progressPage.startId,
+                            limit:     that.progressPage.limit
+                    }) 
+                }
+              }
+              that.tempDistance = scrollTop;
+            },800)
+        },
+
+
+*/
+
     import { on, off } from '../../utils/dom';
     const prefixCls = 'ivu-affix';
 
